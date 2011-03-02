@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+  <head>
+    <link rel="stylesheet" href="http://f.fontdeck.com/s/css/PGjtCDlfq+xAmmp1YSbXw90NWR4/demo.ambwork.com/5307.css" type="text/css" /> 
+    <link rel="stylesheet" href="css/style.css" type="text/css" /> 
+    <link rel="stylesheet" href="css/boxes.css" type="text/css" /> 
+    
+    <title>Storify Template: Ken Burns</title>
+    
+    <!-- Tooltip classes -->
+  	<link rel="stylesheet" href="css/tip-twitter.css" type="text/css" />
+
+  	<!-- jQuery and the Poshy Tip plugin files -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+  	<script type="text/javascript" src="js/jquery.poshytip.js"></script>
+  	<script type="text/javascript" src="js/kenburns.js"></script>
+  </head>
+  <body>
+    
+    <div id="story" class="hidden">
+      
+      <!-- class box4 box7 or box10 are very nice here -->
+      <div id="slideshow" class="box7" style="width:auto;height:auto;padding:15px;margin-top:10px;">
+        <canvas id="kenburns" width="384" height="416"> 
+        	Your browser doesn't support canvas! Try Chrome, Firefox or Opera
+        </canvas>
+      </div>
+      
+      <div id="header">
+        <h1>Story title</h1>
+        <h2>Story description</h2>
+        <img id="byline" width=16 height=16 src="" border=0 />
+        <h3>Byline</h3>
+      </div>
+      
+      <div id="people"></div>
+      
+    </div>
+    
+    <script>
+var storyurl;
+
+if (window.location.hash && window.location.hash.match(/http:\/\/storify\.com\//)) storyurl = window.location.hash.substr(1);
+else storyurl = 'http://storify.com/torontostar/online-reaction-to-libya-chaos';
+
+$.getJSON(storyurl + '.json?callback=?', function(json) {
+	renderStory(json);
+});
+$('#story').removeClass("hidden");
+
+
+
+function renderStory(story) {
+
+	console.log("Story: ", story);
+
+	$('#story #header h1').html(story.title);
+	$('#story #header h2').html(story.description);
+	$('#story #header h3').html('By ' + story.author.name);
+	$('#story #header img#byline').attr("src", story.author.avatar);
+
+	var storyImages = [],
+		people = '';
+	people_array = [],
+	tweets = {};
+
+	for (var i in story.elements) {
+		var el = story.elements[i];
+
+		if (el.image && el.image.src) {
+			storyImages.push(el.image.src);
+		}
+
+		if (el.author.avatar) {
+			if (people_array.indexOf(el.author.avatar) == -1) {
+				people_array.push(el.author.avatar);
+				people += '<a href="#" title="' + el.description + '" class="avatar"><img src="' + el.author.avatar + '" /><a>';
+			}
+		}
+	}
+
+	$('#story #people').html(people);
+
+
+	$('a.avatar').poshytip({
+		className: 'tip-twitter',
+		showTimeout: 1,
+		alignTo: 'target',
+		alignX: 'center',
+		offsetY: 40,
+		allowTipHover: false,
+		fade: true,
+		slide: true
+	});
+	console.log("Images: ", storyImages);
+	
+	$('#kenburns').kenburns({
+			images: storyImages,
+			frames_per_second: 30,
+			display_time: 10000,
+			fade_time: 1000,
+			zoom: 1.5,
+			width: 384,
+			height:416,
+			background_color: '#ffffff'
+	});
+
+}
+
+</script>
+    
+  </body>
+</html>

@@ -1,0 +1,104 @@
+
+body {
+font-family: Arial;
+color-background: #EFEFEF;
+margin: 50px;
+}
+
+p {
+display: inline-block;
+font-size: 12px;
+margin-bottom: 30px;
+}
+
+
+div {
+font-family: "Adelle Thin", Georgia, serif;
+font-size-adjust: 0.51;
+font-weight: 100;
+font-style: normal;
+}
+
+
+    #wrapper {
+width: 960px;
+margin-left: 35px;
+margin-top: 20px;
+}
+
+#story {
+  width:900px;
+  margin:0 auto;
+}
+
+    #story h1 {
+font-family: "Adelle Thin", Georgia, serif;
+font-size-adjust: 0.51;
+font-weight: 100;
+font-style: normal;
+font-size: 36px;
+width: 450px;
+}
+
+    #story h2 {
+font-size: 18px;
+font-family: "Adelle Thin", Georgia, serif;
+font-size-adjust: 0.51;
+font-weight: 100;
+font-style: normal;
+width: 450px;
+color: #9E9E9E;
+line-height: 1.4em;
+}
+
+
+    #story h3 {
+font-family: "Proxima Nova Bold", 'Helvetica Neue', Arial, Helvetica, sans-serif;
+font-size-adjust: 0.488;
+font-weight: bold;
+font-style: normal;
+font-size: 12px;
+text-transform: uppercase;
+margin-bottom: 25px;
+letter-spacing: 1px;
+}
+
+	#story #byline {
+width: 16px;
+float: left;
+margin-right: 4px;
+}
+	
+	
+	
+	.hidden {
+display: none;
+}
+
+
+#story #people img {
+height: 48px;
+margin: 1px;
+}
+
+#story #people img:hover {
+margin-top: -10px;
+}
+
+#imageSlideshow img {
+left: 0px !important;
+}
+
+#story #people img {
+height: 32px;
+}
+
+
+#people {
+width: 400px;
+}
+  
+  
+#slideshow {
+float: right;
+}
