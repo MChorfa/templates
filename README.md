@@ -13,41 +13,44 @@ e.g. http://dl.dropbox.com/u/1702667/sites/kenburns/index.html#http://storify.co
 ## How to make a template?
 
 Just create a new HTML page and request the JSON of the story using jQuery:
-<code>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
   
-  <div id="story">
-    <div id="header">
-      <h1>Story title</h1>
-      <h2>Story description</h2>
-      <img id="byline" width=16 height=16 src="" border=0 />
-      <h3>Byline</h3>
+    <div id="story">
+      <div id="header">
+        <h1>Story title</h1>
+        <h2>Story description</h2>
+        <img id="byline" width=16 height=16 src="" border=0 />
+        <h3>Byline</h3>
+      </div>
     </div>
-  </div>
   
-  <script>
-  if (window.location.hash && window.location.hash.match(/http:\/\/storify\.com\//)) storyurl = window.location.hash.substr(1);
-  else storyurl = 'http://storify.com/torontostar/online-reaction-to-libya-chaos';
+    <script>
+    var storyurl = 'http://storify.com/torontostar/online-reaction-to-libya-chaos';
+    
+    // We use this so that you can override the storyurl by appending it after the hash
+    // e.g. index.html#http://storify.com/xdamman/why-do-you-do-what-you-do
+    if (window.location.hash && window.location.hash.match(/http:\/\/storify\.com\//)) storyurl = window.location.hash.substr(1);
 
-  $.getJSON(storyurl + '.json?callback=?', function(json) {
-  	renderStory(json);
-  });
+    // We fetch the JSON. 
+    $.getJSON(storyurl + '.json?callback=?', function(json) {
+    	renderStory(json);
+    });
 
-  function renderStory(story) {
+    // We render the story
+    function renderStory(story) {
 
-  	$('#story #header h1').html(story.title);
-  	$('#story #header h2').html(story.description);
-  	$('#story #header h3').html('By ' + story.author.name);
-  	$('#story #header img#byline').attr("src", story.author.avatar);
+    	$('#story #header h1').html(story.title);
+    	$('#story #header h2').html(story.description);
+    	$('#story #header h3').html('By ' + story.author.name);
+    	$('#story #header img#byline').attr("src", story.author.avatar);
   
-  	// And so on...
+    	// And so on...
 
-  	// You can check in the console all the available data from the JSON
-  	console.log("Story: ", story);
-	}
-  </script>
-</code>
-
+    	// You can check in the console all the available properties from the JSON
+    	console.log("Story: ", story);
+  	}
+    </script>
 
 ## How to Contribute
 
