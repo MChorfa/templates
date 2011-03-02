@@ -6,6 +6,9 @@ This Template Repository provides a way to contribute a template and use it on S
 ---------------------
 
 ## Try It
+KenBurns template: http://dl.dropbox.com/u/1702667/sites/kenburns/index.html
+You can add the url of any story after the hash:
+e.g. http://dl.dropbox.com/u/1702667/sites/kenburns/index.html#http://storify.com/xdamman/why-do-you-do-what-you-do
 
 ## How to make a template?
 
@@ -49,7 +52,6 @@ Just create a new HTML page and request the JSON of the story using jQuery:
 ## How to Contribute
 
 1. Clone this repository.
-1. Use one of the samples provided to create your own source.
-1. Test your own source using the bookmarklet.
+1. Use one of the samples provided to create your own template.
 1. Submit a pull request on on GitHub.
 
