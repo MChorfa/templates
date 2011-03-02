@@ -6,9 +6,9 @@ This Template Repository provides a way to contribute a template and use it on S
 ---------------------
 
 ## Try It
-KenBurns template: (http://dl.dropbox.com/u/1702667/sites/kenburns/index.html)
+KenBurns template: [http://dl.dropbox.com/u/1702667/sites/kenburns/index.html]
 You can add the url of any story after the hash:
-e.g. (http://dl.dropbox.com/u/1702667/sites/kenburns/index.html#http://storify.com/xdamman/why-do-you-do-what-you-do)
+e.g. [http://dl.dropbox.com/u/1702667/sites/kenburns/index.html#http://storify.com/xdamman/why-do-you-do-what-you-do]
 
 ## How to make a template?
 
