@@ -52,9 +52,17 @@ Just create a new HTML page and request the JSON of the story using jQuery:
   	}
     </script>
 
+## How to embed a story using a template on my site?
+
+We are working on a more streamlined process but for now the easiest way is to use an iframe:
+    <iframe src="http://dl.dropbox.com/u/1702667/sites/kenburns/index.html#http://storify.com/xdamman/why-do-you-do-what-you-do" width=950 height=550 frameborder=no></iframe>Result:
+(don't forget to adapt the width and height to the template that you use)
+Here is the result:
+<iframe src="http://dl.dropbox.com/u/1702667/sites/kenburns/index.html#http://storify.com/xdamman/why-do-you-do-what-you-do" width=950 height=550 frameborder=no></iframe>
+
 ## How to Contribute
 
 1. Clone this repository.
 1. Use one of the samples provided to create your own template.
-1. Submit a pull request on on GitHub.
+1. Submit a pull request on GitHub.
 
