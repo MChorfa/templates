@@ -29,7 +29,7 @@ function storify(callback, page)
   if (window.location.hash && window.location.hash.match(/http:\/\/storify\.com\//)) storyurl = window.location.hash.substr(1);
   else storyurl = 'http://storify.com/torontostar/online-reaction-to-libya-chaos';
     
-	jQuery.getJSON(storyurl+'.json?page='+page, function(story) 
+	jQuery.getJSON(storyurl+'.json?page='+page+'&callback=?', function(story) 
 	{
 	  var images = [];
 	  
@@ -269,7 +269,7 @@ function refreshImage(elem, cell)
     		zoomImage.attr("src", cell.info.zoom);
 
 		zoomTimer = null;
-	}, 2000);
+	}, 1000);
 }
 
 function layoutImageInCell(image, cell)
