@@ -75,7 +75,7 @@
 			// Gets information structure for a given index
 			// Also loads the image asynchronously, if required		
 			var image_info = images[image_index];
-			if (!image_info.initialized) {
+			if (image_info && !image_info.initialized) {
 				var image = new Image();
 				image_info.image = image;
 				image_info.loaded = false;
