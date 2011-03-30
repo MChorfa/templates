@@ -20,7 +20,7 @@ font-style: normal;
 }
 
 
-    #wrapper {
+#wrapper {
 width: 960px;
 margin-left: 35px;
 margin-top: 20px;
@@ -31,7 +31,7 @@ margin-top: 20px;
   margin:0 auto;
 }
 
-    #story h1 {
+#story h1 {
 font-family: "Adelle Thin", Georgia, serif;
 font-size-adjust: 0.51;
 font-weight: 100;
@@ -40,7 +40,7 @@ font-size: 36px;
 width: 450px;
 }
 
-    #story h2 {
+#story h2 {
 font-size: 18px;
 font-family: "Adelle Thin", Georgia, serif;
 font-size-adjust: 0.51;
@@ -51,9 +51,8 @@ color: #9E9E9E;
 line-height: 1.4em;
 }
 
-
-    #story h3 {
-font-family: "Proxima Nova Bold", 'Helvetica Neue', Arial, Helvetica, sans-serif;
+#story h3 {
+font-family: "Proxima Nova Bold", 'Helvetica Neue';
 font-size-adjust: 0.488;
 font-weight: bold;
 font-style: normal;
@@ -63,7 +62,7 @@ margin-bottom: 25px;
 letter-spacing: 1px;
 }
 
-	#story #byline {
+#story img#byline {
 width: 16px;
 float: left;
 margin-right: 4px;
