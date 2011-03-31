@@ -6,7 +6,9 @@ This Template Repository provides a way to contribute a template and use it on S
 ---------------------
 
 ## Try It
-KenBurns template: [dl.dropbox.com/u/1702667/github/templates/kenburns/index.html](http://dl.dropbox.com/u/1702667/github/templates/kenburns/index.html) .  
+- Slideshow template: you can just append `/slideshow` to any story url. E.g. [http://storify.com/ajestream/miyagi/slideshow](http://storify.com/ajestream/miyagi)
+
+- KenBurns template: [dl.dropbox.com/u/1702667/github/templates/kenburns/index.html](http://dl.dropbox.com/u/1702667/github/templates/kenburns/index.html) .  
 You can add the url of any story after the hash:  
 e.g. [dl.dropbox.com/u/1702667/github/templates/kenburns/index.html#http://storify.com/xdamman/why-do-you-do-what-you-do](http://dl.dropbox.com/u/1702667/github/templates/kenburns/index.html#http://storify.com/xdamman/why-do-you-do-what-you-do) .
 
