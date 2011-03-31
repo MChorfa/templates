@@ -6,11 +6,13 @@ This Template Repository provides a way to contribute a template and use it on S
 ---------------------
 
 ## Try It
-KenBurns template: [dl.dropbox.com/u/1702667/sites/kenburns/index.html](http://dl.dropbox.com/u/1702667/sites/kenburns/index.html) .  
+KenBurns template: [dl.dropbox.com/u/1702667/github/templates/kenburns/index.html](http://dl.dropbox.com/u/1702667/github/templates/kenburns/index.html) .  
 You can add the url of any story after the hash:  
-e.g. [dl.dropbox.com/u/1702667/sites/kenburns/index.html#http://storify.com/xdamman/why-do-you-do-what-you-do](http://dl.dropbox.com/u/1702667/sites/kenburns/index.html#http://storify.com/xdamman/why-do-you-do-what-you-do) .
+e.g. [dl.dropbox.com/u/1702667/github/templates/kenburns/index.html#http://storify.com/xdamman/why-do-you-do-what-you-do](http://dl.dropbox.com/u/1702667/github/templates/kenburns/index.html#http://storify.com/xdamman/why-do-you-do-what-you-do) .
 
 ## How to make a template?
+
+<div style="width:425px" id="__ss_7319023"> <strong style="display:block;margin:12px 0 4px"><a href="http://www.slideshare.net/xdamman/storytelling-using-javascript-html5-css3" title="Storytelling using Javascript HTML5 CSS3">Storytelling using Javascript HTML5 CSS3</a></strong> <object id="__sse7319023" width="425" height="355"> <param name="movie" value="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=html5-110319152327-phpapp01&stripped_title=storytelling-using-javascript-html5-css3&userName=xdamman" /> <param name="allowFullScreen" value="true"/> <param name="allowScriptAccess" value="always"/> <embed name="__sse7319023" src="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=html5-110319152327-phpapp01&stripped_title=storytelling-using-javascript-html5-css3&userName=xdamman" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="355"></embed> </object> <div style="padding:5px 0 12px"> View more <a href="http://www.slideshare.net/">presentations</a> from <a href="http://www.slideshare.net/xdamman">Xavier Damman</a> </div> </div>
 
 Just create a new HTML page and request the JSON of the story using jQuery:
 
