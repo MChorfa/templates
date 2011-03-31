@@ -177,8 +177,8 @@ $(document).ready(function() {
 			var urls, image_url;
 			
 			var imageShortURL = Storify.utils.parseFirstURL(element.description);
-			if (imageShortURL) {
-				var image_url = Storify.utils.getImage(imageShortURL);
+			var image_url = Storify.utils.getImage(imageShortURL);
+			if (image_url) {
 						template = '	<div class="photoContainer" style="position:relative;top:'+topPosition+'px;">\n\
 											<img class="photo thumbnail" src="' + image_url + '" border=0 /> \n\
 											<div class="legend">\n\
