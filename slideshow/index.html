@@ -45,7 +45,22 @@
 
   <!-- Javascript at the bottom for fast page loading -->
 
-  <script>STORIFY_JQUERY = jQuery;</script>
+  <script>STORIFY_JQUERY = jQuery;
+  if (!window['YT']) {
+  var YT = {};
+  }
+  if (!YT.Player) {
+  (function(){
+  var s = 'http://s.ytimg.com/yt/jsbin/www-playerapi-vfl5KPyph.js';
+  var a = document.createElement('script');
+  a.src = s;
+  a.async = true;
+  var b = document.getElementsByTagName('script')[0];
+  b.parentNode.insertBefore(a, b);
+  })();
+  }
+  </script>
+
   <script src="http://static.storify.com/js/utils.js"></script>
   <script src="js/plugins.js?v=1"></script>
   <script src="js/script.js?v=1"></script>
