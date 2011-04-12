@@ -2,5 +2,6 @@
   "name": "storify-templates",
   "version": "0.0.1",
   "repository": "git://github.com/storify/templates.git",
-  "author": "Storify (http://storify.com)"
+  "author": "Storify (http://storify.com)",
+  "main": "./index.js"
 }
