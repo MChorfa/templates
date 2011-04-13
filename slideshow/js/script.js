@@ -161,8 +161,7 @@ $(document).ready(function() {
 		var storyurl;
 		
 		if (window.location.hash && window.location.hash.match(/storify\.com\//)) storyurl = window.location.hash.substr(1);
-		else if (window.location.href.match(/storify\.com\//)) storyurl = window.location.href.replace('/slideshow','');
-		else storyurl = (typeof STORIFY_PERMALINK != 'undefined') ? STORIFY_PERMALINK : 'http://storify.com/nzherald/reaction-to-japanese-tsunami';
+		else storyurl = (typeof STORIFY_PERMALINK != 'undefined') ? STORIFY_PERMALINK : 'http://storify.com/storify/testimonials';
 
 		$.getJSON(storyurl + '.json?metadata=1&callback=?', function(data) {
 		  $('#title').append(getTitle(data.author));
