@@ -2,7 +2,7 @@ $(document).ready(function() {
 
 	function onbefore(curr, next, opts) {
 	  $(next).show();
-	  $(next).children('.tweet, .photoContainer, .textP').center();
+	  $(next).children('.quote, .photoContainer, .textP').center();
 	  
 		$(next).children('.photoSlide').each(function() {
 			if ($(this).hasClass('notResized')) {
@@ -74,74 +74,80 @@ $(document).ready(function() {
 	  var layout = '<div class="slideWrapper '+element.elementClass+'Element">';
 	  	  
 		switch (element.elementClass) {
-		case "video":
-		  if(element.source == "youtube") {
-		    var youtubeVideoID = element.permalink.replace("http://www.youtube.com/watch?v=",'');
-		    layout += '<object width="'+document.width+' height="'+document.height+'">\n\
-        <param name="movie" value="http://www.youtube.com/v/'+youtubeVideoID+'?fs=1&autoplay=1&controls=0"</param>\n\
-        <param name="allowFullScreen" value="true"></param>\n\
-        <param name="allowScriptAccess" value="always"></param>\n\
-        <embed src="http://www.youtube.com/v/'+youtubeVideoID+'?fs=1&autoplay=1&controls=0"\n\
-          type="application/x-shockwave-flash"\n\
-          allowfullscreen="true"\n\
-          allowscriptaccess="always"\n\
-          width="'+document.width+'" height="'+document.height+'">\n\
-        </embed>\n\
-        </object>';
+  		case "video":
+  		  if(element.source == "youtube") {
+  		    var youtubeVideoID = element.permalink.replace("http://www.youtube.com/watch?v=",'');
+  		    layout += '<object width="'+document.width+' height="'+document.height+'">\n\
+          <param name="movie" value="http://www.youtube.com/v/'+youtubeVideoID+'?fs=1&autoplay=1&controls=0"</param>\n\
+          <param name="allowFullScreen" value="true"></param>\n\
+          <param name="allowScriptAccess" value="always"></param>\n\
+          <embed src="http://www.youtube.com/v/'+youtubeVideoID+'?fs=1&autoplay=1&controls=0"\n\
+            type="application/x-shockwave-flash"\n\
+            allowfullscreen="true"\n\
+            allowscriptaccess="always"\n\
+            width="'+document.width+'" height="'+document.height+'">\n\
+          </embed>\n\
+          </object>';
         
-        layout += '<iframe id="player" type="text/html" width="'+document.width+'" height="'+document.height+'"\n\
-          src="http://www.youtube.com/embed/u1zgFlCw8Aw?enablejsapi=1&origin=storify.com"\n\
-          frameborder="0">';
-		  }
-		  break;
-		  
-		case "text":
-		  layout += '<p class="textP">'+element.description.sanitizeTags('<a>')+'</p>';		  
-		  break;
-		case "photo":
-			var imgUrl = element.metadata.url_o || element.metadata.url_m || element.metadata.url;
-			layout += '<img class="photoSlide notResized" src="' + imgUrl + '" /><aside class="attribution">' + element.metadata.title + '<br/>by: ' + element.author.name + '</aside>';
-			break;
-		case "tweet":
-		  var background_image;
-			if (element.metadata.user.profile_background_image_url) {
-				background_image = element.metadata.user.profile_background_image_url;
-			} else {
-				background_image = "none";
-			}
+          layout += '<iframe id="player" type="text/html" width="'+document.width+'" height="'+document.height+'"\n\
+            src="http://www.youtube.com/embed/u1zgFlCw8Aw?enablejsapi=1&origin=storify.com"\n\
+            frameborder="0">';
+  		  }
+  		  break;
+  		case "photo":
+  			var imgUrl = element.metadata.url_o || element.metadata.url_m || element.metadata.url;
+  			layout += '<img class="photoSlide notResized" src="' + imgUrl + '" /><aside class="attribution">' + element.metadata.title + '<br/>by: ' + element.author.name + '</aside>';
+  			break;
+  		case "text":
+  		  layout += '<p class="textP">'+element.description.sanitizeTags('<a>')+'</p>';		  
+  		  break;
+      case "quote":
+        console.log(element);
+
+  			var template = '<div class="quote"><p>' + element.description + '</p><aside class="user"><img src="' + element.favicon + '" /><div class="username"><a href="' + element.author.href + '">' + element.author.name + '</a></div><div class="name">' + element.title + '</div></aside><br style="clear:both;"/></div>';
+
+        layout += template + '</div>';
+  			break;
+  		case "tweet":
+  		  var background_image;
+  			if (element.metadata.user.profile_background_image_url) {
+  				background_image = element.metadata.user.profile_background_image_url;
+  			} else {
+  				background_image = "none";
+  			}
 			
-			element.metadata.user.name = element.metadata.user.name || '';
+  			element.metadata.user.name = element.metadata.user.name || '';
 
-			var template = '<div class="tweet"><p>' + element.description + '</p><aside class="meta"><small class="timeago">' + Storify.utils.displayDate(element.metadata.created_at) + '</small></aside>\n\
-							<aside class="user"><img alt="storify.com" src="http://www.extension.org/mediawiki/files/a/a7/Twitter_logo_header.png" width="144" height="33" class="twitterLogo" style="float: right;"/><img src="' + element.metadata.user.profile_image_url + '" width=48 /><div class="username"><a href="http://twitter.com/' + element.author.username + '">' + element.author.username + '</a></div><div class="name">' + element.metadata.user.name + '</div></aside><br style="clear:both;"/><img class="background" caption="' + element.metadata.user.profile_background_tile + '" title="' + element.metadata.user.profile_background_color + '" src="' + background_image + '" style="width:0;height:0;display:none;"/></div>';
+  			var template = '<div class="quote"><p>' + element.description + '</p><aside class="meta"><small class="timeago">' + Storify.utils.displayDate(element.metadata.created_at) + '</small></aside>\n\
+  							<aside class="user"><img alt="storify.com" src="http://www.extension.org/mediawiki/files/a/a7/Twitter_logo_header.png" width="144" height="33" class="twitterLogo" style="float: right;"/><img src="' + element.metadata.user.profile_image_url + '" width=48 /><div class="username"><a href="http://twitter.com/' + element.author.username + '">' + element.author.username + '</a></div><div class="name">' + element.metadata.user.name + '</div></aside><br style="clear:both;"/><img class="background" caption="' + element.metadata.user.profile_background_tile + '" title="' + element.metadata.user.profile_background_color + '" src="' + background_image + '" style="width:0;height:0;display:none;"/></div>';
 
-			var urls, image_url;
-			var imageShortURL = Storify.utils.parseFirstURL(element.description);
-			var image_url = (imageShortURL) ? Storify.utils.getImage(imageShortURL) : null;
+  			var urls, image_url;
+  			var imageShortURL = Storify.utils.parseFirstURL(element.description);
+  			var image_url = (imageShortURL) ? Storify.utils.getImage(imageShortURL) : null;
 			
-			if (image_url) {
-						template = '<div class="photoContainer">\n\
-											<img class="photo thumbnail" src="' + image_url + '" border=0 /> \n\
-											<div class="legend">\n\
-												<div class="photoTweet">\n\
-													<a href="http://twitter.com/' + element.author.username + '"><img class="thumbnail avatar" src="' + element.author.avatar + '" alt="' + element.author.username + '" border=0 width=32 /></a> \n\
-													<div class="content">\n\
-														<span class="text">' + element.description + '</span>\n\
-														<span class="timestamp">\n\
-															<a href="http://twitter.com/' + element.author.username + '"><span class="author">' + element.author.username + '</span></a>\n\
-															<img src="http://twitter.com/favicon.ico" width=16 border=0 class="sourceIcon" /><a href="' + element.permalink + '" target="_blank">' + Storify.utils.displayDate(element.created_at) + '</a>\n\
-														</span>\n\
-													</div> \n\
-												</div> \n\
-											</div>\n\
-											<img class="background" caption="' + element.metadata.user.profile_background_tile + '" title="' + element.metadata.user.profile_background_color + '" src="' + background_image + '" style="width:0;height:0;display:none;"/>\n\
-										</div>';
-			}
+  			if (image_url) {
+  						template = '<div class="photoContainer">\n\
+  											<img class="photo thumbnail" src="' + image_url + '" border=0 /> \n\
+  											<div class="legend">\n\
+  												<div class="photoTweet">\n\
+  													<a href="http://twitter.com/' + element.author.username + '"><img class="thumbnail avatar" src="' + element.author.avatar + '" alt="' + element.author.username + '" border=0 width=32 /></a> \n\
+  													<div class="content">\n\
+  														<span class="text">' + element.description + '</span>\n\
+  														<span class="timestamp">\n\
+  															<a href="http://twitter.com/' + element.author.username + '"><span class="author">' + element.author.username + '</span></a>\n\
+  															<img src="http://twitter.com/favicon.ico" width=16 border=0 class="sourceIcon" /><a href="' + element.permalink + '" target="_blank">' + Storify.utils.displayDate(element.created_at) + '</a>\n\
+  														</span>\n\
+  													</div> \n\
+  												</div> \n\
+  											</div>\n\
+  											<img class="background" caption="' + element.metadata.user.profile_background_tile + '" title="' + element.metadata.user.profile_background_color + '" src="' + background_image + '" style="width:0;height:0;display:none;"/>\n\
+  										</div>';
+  			}
 
-      layout += template + '</div>';
-			break;
-		default:
-		  return false;
+        layout += template + '</div>';
+  			break;
+  		default:
+  		  return false;
 		}
 
 		return layout+'</div>';
@@ -179,7 +185,7 @@ $(document).ready(function() {
 					  $("#twitterShow").append(html);
 				});
 				
-			  $('.tweet, .photoContainer, .textP').center();
+			  $('.quote, .photoContainer, .textP').center();
 			
 				// Create the slideshow again using the new tweets, and fade it back in
 				$("#twitterShow").cycle({

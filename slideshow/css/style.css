@@ -220,6 +220,8 @@ a {color:#0074B7;text-decoration:none;}
 }
 
 #title .avatar {
+  width: 48px;
+  height: 48px;
   vertical-align: -15px;
 }
 
@@ -247,7 +249,7 @@ a {color:#0074B7;text-decoration:none;}
   padding:35px 15px;
 }
 
-div.tweet {
+.quote {
   position: absolute;
   background: #fff;
   overflow:hidden;
@@ -259,15 +261,16 @@ div.tweet {
   border-radius: 3px;
   clear: both;
 }
-div.tweet p{font-size: 300%; line-height: 120%; height: 250px;}
-div.tweet aside.meta{}
-div.tweet aside.meta small.timeago{}
-div.tweet aside.user{margin-top: 10px; padding-top: 10px; border-top: 1px solid #000;}
-div.tweet aside .username { }
-div.tweet aside .name { }
-div.tweet aside.user a{display: block; font-size: 20px; }
-div.tweet aside.user a:hover{}
-div.tweet aside.user img{float: left; margin-right: 20px;}
+.quote p {font-size: 300%; line-height: 120%; height: 250px; overflow: auto;}
+.quote .user {margin-top: 10px; padding-top: 10px; border-top: 1px solid #000;}
+.quote .user a {display: block; font-size: 20px; }
+.quote .user a:hover {}
+.quote .user img {float: left; margin-right: 20px;}
+
+.quoteElement .user img {
+  margin: 5px 5px 0 0;
+}
+
 .attribution {		
   background: rgba(255, 255, 255, 0.85);
   min-height: 43px;
@@ -344,7 +347,7 @@ div.tweet aside.user img{float: left; margin-right: 20px;}
   html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } 
 }
 
-div.image {
+.image {
 	border:1px solid #fff;
 	margin:2px;
 	margin:0 auto;
@@ -355,28 +358,13 @@ div.image {
 	max-height:400px;
 }
 
-div.image img {
+.image img {
 	max-width:100%;
 	max-height:100%;
 	margin:2px;
 	overflow:hidden;
 	border:1px solid #fff;
 }
-/*
-div.tweet {
-  position: absolute;
-  background: #fff;
-  overflow:hidden;
-  padding:15px;
-  line-height:1.9em;
-  width:700px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  clear: both;
-}
-
-*/
 
 .photoContainer {
   position: absolute;
@@ -442,7 +430,6 @@ padding-left:65px;}
   background-color: #000; padding: 0;text-align: center;
 }
 .slideWrapper.textElement p, .slideWrapper.textElement div {
-  font-family:"Gill Sans", Arial;
   font-size:48px;
   width:60% !important;
   color:white;
