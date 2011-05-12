@@ -110,7 +110,9 @@ $(document).ready(function() {
   			break;
   		case "tweet":
   		  var background_image;
-  			if (element.metadata && element.metadata.user && element.metadata.user.profile_background_image_url) {
+  		  element.metadata = element.metadata || {};
+  		  element.metadata.user = element.metadata.user || {};
+  			if (element.metadata.user.profile_background_image_url) {
   				background_image = element.metadata.user.profile_background_image_url;
   			} else {
   				background_image = "none";
@@ -119,7 +121,7 @@ $(document).ready(function() {
   			element.metadata.user.name = element.metadata.user.name || '';
 
   			var template = '<div class="quote"><p>' + element.description + '</p><aside class="meta"><small class="timeago">' + Storify.utils.displayDate(element.metadata.created_at) + '</small></aside>\n\
-  							<aside class="user"><img alt="storify.com" src="http://www.extension.org/mediawiki/files/a/a7/Twitter_logo_header.png" width="144" height="33" class="twitterLogo" style="float: right;"/><img src="' + element.metadata.user.profile_image_url + '" width=48 /><div class="username"><a href="http://twitter.com/' + element.author.username + '">' + element.author.username + '</a></div><div class="name">' + element.metadata.user.name + '</div></aside><br style="clear:both;"/><img class="background" caption="' + element.metadata.user.profile_background_tile + '" title="' + element.metadata.user.profile_background_color + '" src="' + background_image + '" style="width:0;height:0;display:none;"/></div>';
+  							<aside class="user"><img alt="storify.com" src="http://www.extension.org/mediawiki/files/a/a7/Twitter_logo_header.png" width="144" height="33" class="twitterLogo" style="float: right;"/><img src="' + element.author.avatar + '" width=48 /><div class="username"><a href="http://twitter.com/' + element.author.username + '">' + element.author.username + '</a></div><div class="name">' + element.metadata.user.name + '</div></aside><br style="clear:both;"/><img class="background" caption="' + element.metadata.user.profile_background_tile + '" title="' + element.metadata.user.profile_background_color + '" src="' + background_image + '" style="width:0;height:0;display:none;"/></div>';
 
   			var urls, image_url;
   			var imageShortURL = Storify.utils.parseFirstURL(element.description);
