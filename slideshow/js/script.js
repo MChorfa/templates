@@ -110,7 +110,7 @@ $(document).ready(function() {
   			break;
   		case "tweet":
   		  var background_image;
-  			if (element.metadata.user.profile_background_image_url) {
+  			if (element.metadata && element.metadata.user && element.metadata.user.profile_background_image_url) {
   				background_image = element.metadata.user.profile_background_image_url;
   			} else {
   				background_image = "none";
