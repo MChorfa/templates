@@ -95,6 +95,7 @@ $(document).ready(function() {
   		  }
   		  break;
   		case "photo":
+  		  if(!element.metadata) break;
   			var imgUrl = element.metadata.url_o || element.metadata.url_m || element.metadata.url;
   			layout += '<img class="photoSlide notResized" src="' + imgUrl + '" /><aside class="attribution">' + element.metadata.title + '<br/>by: ' + element.author.name + '</aside>';
   			break;
