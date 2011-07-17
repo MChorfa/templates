@@ -97,7 +97,12 @@ body {
   border-radius:5px;
 }
 
+.storyElement.tweet .body{
+  text-align:center;
+}
+
 .storyElement.tweet .body p {
+  text-align:left;
   padding:20px;
   font-size:24px;
   line-height:1.5;

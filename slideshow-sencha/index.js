@@ -15,7 +15,7 @@
   var templates = {
     text: "{{text}}",
 
-    tweet: '<div class="body"><p>{{description}}</p></div> \
+    tweet: '<div class="body">{{image}}<p>{{description}}</p></div> \
             <div class="footer">\
               <div class="author"> \
                 <img src="{{author.avatar}}"> \
@@ -49,8 +49,17 @@
           break;
 
           case "tweet":
-          elementNode.html(renderTemplate(templates.tweet,element));
-          slides.push({title: 'Slide '+totalSlides, html:elementNode.html(), cls:'storyElement '+element.elementClass });
+          var imagesrc = storify.utils.getImage(parseFirstURL(element.description));
+          var slide = {title: 'Slide '+totalSlides, cls:'storyElement '+element.elementClass };
+          
+          if(imagesrc) {
+            console.log("Found an image: "+imagesrc);
+            element.image = '<img src="'+imagesrc+'" border=0 />';
+            slide.cls+=' image';
+          }
+          slide.html = renderTemplate(templates.tweet,element);
+          
+          slides.push(slide);
           break;
         }
 
@@ -66,6 +75,17 @@
   
   this.getSlides = function() {
     return slides;
+  }
+  
+  parseFirstURL = function(str) {
+    var urlexp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gi;
+
+    var matches = str.match(urlexp);
+
+    if(!matches)
+      return;
+
+    return matches[0];
   }
   
   function renderTemplate(template, data) {
@@ -173,7 +193,13 @@ function valignElements() {
     //var nodeHeight = $(this).find('.x-panel-body').height();
     //console.log(' height: '+nodeHeight);
     //$(this).css('top',Math.max(Math.round((window.innerHeight-100)/2-nodeHeight),20));
-    $(this).css('top',Math.max(Math.round((window.innerHeight-300)/2),20));
+    if($(this).hasClass("image")) {
+      $(this).css('top',20);
+    }
+    else {
+      var height = Math.max(Math.round((window.innerHeight-300)/2),20);
+      $(this).css('top',height);
+    }
     
   });
   
