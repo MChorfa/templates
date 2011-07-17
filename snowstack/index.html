@@ -21,14 +21,15 @@
 <meta name="Description" content="Snow Stack is a demo of WebKit CSS 3D visual effects with latest WebKit nightly on Mac OS X Snow Leopard" />
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-
+<script src="../api.js"></script>
 <script>
+var storify_api = new Storify()
+  , storyurl = storify_api.getPermalink() || 'http://storify.com/storify/testimonials';
+
 function storify(callback, page)
 {
-  var storyurl, page = page || 1;
-  if (window.location.hash && window.location.hash.match(/http:\/\/storify\.com\//)) storyurl = window.location.hash.substr(1);
-  else storyurl = 'http://storify.com/torontostar/online-reaction-to-libya-chaos';
-    
+  var page = page || 1;
+
 	jQuery.getJSON(storyurl+'.json?page='+page+'&callback=?', function(story) 
 	{
 	  var images = [];

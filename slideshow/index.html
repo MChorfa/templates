@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold" rel="stylesheet">
-    <link rel="stylesheet" href="/slideshow/css/style.css?v=1">
+    <link rel="stylesheet" href="css/style.css?v=1">
   </head>
   <body>
   
@@ -20,13 +20,17 @@
     <div id="twitterShow"></div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+    <script src="../api.js"></script>
     <script>
-      STORIFY_JQUERY = jQuery;  
+      STORIFY_JQUERY = jQuery;
+      
+      var storify = new Storify();
+      STORIFY_PERMALINK = storify.getPermalink() || 'http://storify.com/storify/testimonials';
     </script>
     <script src="http://static.storify.com/js/utils.js"></script>
-    
-    <script src="/slideshow/js/plugins.js?v=1"></script>
-    <script src="/templates/slideshow/js/script.js?v=1"></script>
+
+    <script src="js/plugins.js"></script>
+    <script src="js/script.js"></script>
   
   </body>
 </html>
