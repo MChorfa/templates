@@ -1,0 +1,164 @@
+body {
+  margin:0;
+  font-family:Helvetica Neue,Helvetica,Arial;
+  font-weight:300;
+  width:100%;
+  overflow:hidden;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  background-image: -webkit-gradient(radial, 50% 50%, 300, 50% 50%, 1000, from(transparent), to(rgba(0, 0, 0, 0.496094)));
+  background-color:#282828;
+}
+
+#header {
+}
+
+.x-fullscreen {
+  background:transparent;
+}
+
+.x-toolbar {
+  height:30px;
+  width:100%;
+  background:rgba(0,0,0,0.5);
+  color:white;
+  font-size:18px;
+  line-height:30px;
+  padding:5px 0px;
+}
+
+#header .author {
+  float:left;
+  margin-right:10px;
+  border-right:1px solid grey;
+  margin-left:10px;
+  padding-right:10px;
+}
+
+#header .author img {
+  float:left;
+  height:24px;
+  margin:0px 5px 5px 0px;
+  border:2px solid white;
+}
+
+#header .title {
+}
+
+
+#body {
+  
+}
+
+#elements {
+  position:relative;
+  height:100%;
+  overflow:hidden;
+  width:70%;
+  margin:20px auto;
+}
+
+.storyElement {
+  font-size:18px;
+  opacity:1;
+  background:transparent;
+}
+
+.storyElement > div {
+  width:70% !important;
+  margin:20px auto;
+  height:auto !important;
+  min-height:175px !important;
+}
+
+.visible {
+  opacity:1;
+}
+
+.storyElement.text > div {
+  color:white;
+  text-align:center;
+  width:100%;
+  font-size:32px;
+  line-height:1.5;
+}
+
+.storyElement.tweet > div  {
+  background: #f3f3f3;
+  border-radius:5px;
+  min-height:400px;
+  overflow:hidden;
+}
+
+.storyElement.tweet .body {
+  background: white;
+  margin:0px auto 0px;
+  border-radius:5px;
+}
+
+.storyElement.tweet .body p {
+  padding:20px;
+  font-size:24px;
+  line-height:1.5;
+  margin:0;
+}
+
+.storyElement.tweet .author {
+  float:left;
+  width:250px;
+}
+
+.storyElement.tweet .author .name {
+  color:#2186cf;
+  font-weight:bold;
+}
+
+.storyElement.tweet .author .username {
+  color:#707070;
+  font-size: 12px;
+}
+
+
+.storyElement.tweet .author img {
+  float:left;
+  border:3px solid white;
+  margin:5px 10px 0px 0px;
+}
+
+.storyElement.tweet .timestamp {
+  float:right;
+  color:#777;
+  font-size:12px;
+}
+
+.storyElement.tweet .footer {
+  height:80px;
+  padding:10px 20px;
+  overflow:hidden;
+}
+
+#controls {
+  margin:0 auto;
+  width:120px;
+}
+
+#controls > div {
+  float:left;
+}
+
+#controls .arrow {
+  text-indent: -1000;
+  width: 30px;
+  height: 30px;
+  background: url('img/arrow.png') 6px 6px no-repeat;
+}
+
+#controls .arrow.left {
+  -webkit-transform:rotate(180deg);
+}
+
+#footer {
+  position:absolute;
+  bottom:0px;
+}
